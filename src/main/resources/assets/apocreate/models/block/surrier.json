@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "up": "apocreate:block/surrier",
+    "down": "apocreate:block/surrier",
+    "all": "apocreate:block/surrierless"
+  }
+}

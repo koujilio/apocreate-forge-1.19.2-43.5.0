@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 250,
+  "experience": 0.15,
+  "ingredient": {
+    "item": "apocreate:raw_rold_coin"
+  },
+  "result": "apocreate:rold_coin"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 150,
+  "experience": 0.15,
+  "ingredient": {
+    "item": "apocreate:raw_iron_coin"
+  },
+  "result": "apocreate:iron_coin"
+}

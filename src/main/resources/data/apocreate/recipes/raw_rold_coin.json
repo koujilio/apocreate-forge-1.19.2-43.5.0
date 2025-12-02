@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "mca:rose_gold_nugget"
+    }
+  },
+  "result": {
+    "item": "apocreate:raw_rold_coin",
+    "count": 1
+  }
+}
+
