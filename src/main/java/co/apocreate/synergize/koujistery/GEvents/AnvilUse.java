@@ -28,15 +28,15 @@ public class AnvilUse {
 
 
         if (!player.level.isClientSide) {
-            DevingMethod.cmsg(player, "Anvil processed " + output.getHoverName().getString() + " which has " + output.getDamageValue() + "dp damagedness left .");
-            DevingMethod.cmsg(player, CurRDP + "DurabilityPoints recovered.");
-            DevingMethod.cmsg(player, (material.getDisplayName().getString()));
+            DevingMethod.smsg(player, "Anvil processed " + output.getHoverName().getString() + " which has " + output.getDamageValue() + "dp damagedness left .");
+            DevingMethod.smsg(player, CurRDP + "DurabilityPoints recovered.");
+            DevingMethod.smsg(player, (material.getDisplayName().getString()));
 
             DurabilityPointsMethod.DynamicBaseCostSet(output);
-            DevingMethod.cmsg(player, ("CurRDP : " + CurRDP + DurabilityPointsMethod.GetRDP(output)));
+            DevingMethod.smsg(player, ("CurRDP : " + CurRDP + DurabilityPointsMethod.GetRDP(output)));
 
             if (DurabilityPointsMethod.GetRDP(output) >= 10) {
-                player.displayClientMessage(Component.literal("This item has become Everlasting"), true);
+                DevingMethod.dcmsg(player,"This item has become Everlasting");;
                 output.enchant(EverlastingEnchantment, 1);
                 output.setHoverName(Component.literal("Everlasting " + output.getHoverName().getString()));
             }
