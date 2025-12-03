@@ -27,7 +27,7 @@ public class AnvilUse {
         int CurRDP = input.getDamageValue()-output.getDamageValue();// currently repaired durability points
 
 
-        if (!player.level.isClientSide) {
+        if (!player.level.isClientSide && output.isDamageableItem()) {
             DevingMethod.smsg(player, "Anvil processed " + output.getHoverName().getString() + " which has " + output.getDamageValue() + "dp damagedness left .");
             DevingMethod.smsg(player, CurRDP + "DurabilityPoints recovered.");
             DevingMethod.smsg(player, (material.getDisplayName().getString()));
@@ -35,7 +35,7 @@ public class AnvilUse {
             DurabilityPointsMethod.DynamicBaseCostSet(output);
             DevingMethod.smsg(player, ("CurRDP : " + CurRDP + DurabilityPointsMethod.GetRDP(output)));
 
-            if (DurabilityPointsMethod.GetRDP(output) >= 10) {
+            if (DurabilityPointsMethod.GetRDP(output) >= 1000) {
                 DevingMethod.dcmsg(player,"This item has become Everlasting");;
                 output.enchant(EverlastingEnchantment, 1);
                 output.setHoverName(Component.literal("Everlasting " + output.getHoverName().getString()));
