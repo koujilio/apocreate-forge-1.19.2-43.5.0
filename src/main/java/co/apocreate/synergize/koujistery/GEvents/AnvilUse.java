@@ -14,8 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
-import static co.apocreate.synergize.koujistery.ApoCreate.ENCHANTMENTS;
-import static co.apocreate.synergize.koujistery.ApoCreate.MODID;
+import static co.apocreate.synergize.koujistery.ApoCreate.*;
 
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class AnvilUse {
@@ -39,10 +38,9 @@ public class AnvilUse {
             DurabilityPointsMethod.DynamicBaseCostSet(output);
             DevingMethod.smsg(player, ("CurRDP : " + (CurRDP+DurabilityPointsMethod.GetRDP(output))));
 
-            if (DurabilityPointsMethod.GetRDP(output) >= 1000 && !output.getOrCreateTag().getBoolean("EverlastingEnchantment")) {//!output.getEnchantmentTags().contains(Enchantments.ALL_DAMAGE_PROTECTION) add later somwhoew
+            if (DurabilityPointsMethod.GetRDP(output) >= 1000 && output.getEnchantmentLevel(EVERLASTING.get()) != 0) {
                 DevingMethod.dcmsg(player,"This item has become Everlasting");;
                 output.enchant(ApoCreate.EVERLASTING.get() , 1);
-                output.getOrCreateTag().putBoolean("EverlastingEnchantment",true);// temp code
                 output.setHoverName(Component.literal("Everlasting " + output.getHoverName().getString()));
             }
         }
