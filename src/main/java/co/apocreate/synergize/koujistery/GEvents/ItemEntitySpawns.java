@@ -23,9 +23,9 @@ public class ItemEntitySpawns {
             itemEntity = (ItemEntity) event.getEntity();
             ItemStack droppie = itemEntity.getItem();
 
-            if (droppie.isDamageableItem()){
+            if (droppie.isDamageableItem() && droppie.getOrCreateTag().getInt("RecoveredDP") == 0){
 
-                DurabilityPointsMethod.IncrementTRDP(droppie, 300);
+                //DurabilityPointsMethod.IncrementTRDP(droppie, 0);
                 DurabilityPointsMethod.DynamicBaseCostSet(droppie);
             }
         }
