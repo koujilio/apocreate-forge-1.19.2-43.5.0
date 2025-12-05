@@ -4,9 +4,7 @@ package co.apocreate.synergize.koujistery.GEvents;
 import co.apocreate.synergize.koujistery.ApoCreate;
 import co.apocreate.synergize.koujistery.Methods.DevingMethod;
 import co.apocreate.synergize.koujistery.Methods.DurabilityPointsMethod;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.event.entity.player.AnvilRepairEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -17,7 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import static co.apocreate.synergize.koujistery.ApoCreate.*;
 
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class AnvilUse {
+public class OnAnvilUse {
 
     private static Enchantment EverlastingEnchantment;
 
