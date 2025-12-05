@@ -1,9 +1,12 @@
 package co.apocreate.synergize.koujistery.GEvents;
 
 
+import co.apocreate.synergize.koujistery.ApoCreate;
 import co.apocreate.synergize.koujistery.Methods.DevingMethod;
 import co.apocreate.synergize.koujistery.Methods.DurabilityPointsMethod;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.event.entity.player.AnvilRepairEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -11,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
+import static co.apocreate.synergize.koujistery.ApoCreate.ENCHANTMENTS;
 import static co.apocreate.synergize.koujistery.ApoCreate.MODID;
 
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -33,11 +37,12 @@ public class AnvilUse {
             DevingMethod.smsg(player, (material.getDisplayName().getString()));
 
             DurabilityPointsMethod.DynamicBaseCostSet(output);
-            DevingMethod.smsg(player, ("CurRDP : " + CurRDP + DurabilityPointsMethod.GetRDP(output)));
+            DevingMethod.smsg(player, ("CurRDP : " + (CurRDP+DurabilityPointsMethod.GetRDP(output))));
 
-            if (DurabilityPointsMethod.GetRDP(output) >= 1000) {
+            if (DurabilityPointsMethod.GetRDP(output) >= 1000 && !output.getOrCreateTag().getBoolean("EverlastingEnchantment")) {//!output.getEnchantmentTags().contains(Enchantments.ALL_DAMAGE_PROTECTION) add later somwhoew
                 DevingMethod.dcmsg(player,"This item has become Everlasting");;
-                output.enchant(EverlastingEnchantment, 1);
+                output.enchant(ApoCreate.EVERLASTING.get() , 1);
+                output.getOrCreateTag().putBoolean("EverlastingEnchantment",true);// temp code
                 output.setHoverName(Component.literal("Everlasting " + output.getHoverName().getString()));
             }
         }
