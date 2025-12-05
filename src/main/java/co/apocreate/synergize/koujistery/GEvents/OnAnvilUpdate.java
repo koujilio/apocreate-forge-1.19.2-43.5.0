@@ -21,10 +21,8 @@ public class OnAnvilUpdate {
 
     @SubscribeEvent
     public static void AnvilUpdate(AnvilUpdateEvent event) {
-        ItemStack output = event.getOutput();
         ItemStack input = event.getLeft();
         ItemStack material = event.getRight();
-        int InitCost = input.getBaseRepairCost();
 
         if (material.getItem().equals(Items.AIR)) {
 
