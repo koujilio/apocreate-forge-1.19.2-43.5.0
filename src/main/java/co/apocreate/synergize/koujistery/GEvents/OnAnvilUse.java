@@ -33,11 +33,12 @@ public class OnAnvilUse {
             DevingMethod.smsg(player, CurRDP + "DurabilityPoints recovered.");
             DevingMethod.smsg(player, (material.getDisplayName().getString()));
 
+            DurabilityPointsMethod.IncrementTRDP(output,CurRDP);
             DurabilityPointsMethod.DynamicBaseCostSet(output);
             DevingMethod.smsg(player, ("CurRDP : " + (CurRDP+DurabilityPointsMethod.GetRDP(output))));
 
             if (DurabilityPointsMethod.GetRDP(output) >= 1000 && output.getEnchantmentLevel(EVERLASTING.get()) != 0) {
-                DevingMethod.dcmsg(player,"This item has become Everlasting");;
+                DevingMethod.dcmsg(player,"This item has become Everlasting");
                 output.enchant(ApoCreate.EVERLASTING.get() , 1);
                 output.setHoverName(Component.literal("Everlasting " + output.getHoverName().getString()));
             }
